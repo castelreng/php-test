@@ -36,13 +36,14 @@ class OrganizerController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('organizer/create')
+            return redirect('organizers/create')
                 ->withErrors($validator)
                 ->withInput();
         }
 
         $validatedData = $validator->validated();
+        $organizer = VoxApi::createOrganizer($validated);
 
-        VoxApi::createOrganizer($validated);
+        return redirect('organizers/'.$organizer['id']);
     }
 }

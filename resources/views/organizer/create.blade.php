@@ -21,6 +21,15 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Create</h1>
+        <h1>Create Organizer</h1>
+
+        <form  action="{{ route('organizer.create') }} method="post">
+            @csrf
+            <input type="text" name="organizerName" placeholder="Organizer Name">
+            <input type="text" name="imageLocation" placeholder="Image location URL">
+            
+
+            <button type="submit">Save</button>
+        </form>
     </body>
 </html>

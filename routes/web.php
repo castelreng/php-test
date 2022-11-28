@@ -18,4 +18,4 @@ Route::get('/organizers/list', [OrganizerController::class, 'list']);
 Route::get('/organizers/create', [OrganizerController::class, 'create']);
 Route::get('/organizers/{organizerId}', [OrganizerController::class, 'show']);
 
-Route::post('/organizers', [OrganizerController::class, 'store']);
+Route::post('/organizers', [OrganizerController::class, 'store'])->name('organizer.create');
