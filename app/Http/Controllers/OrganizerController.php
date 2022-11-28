@@ -7,9 +7,13 @@ use App\VoxApi\VoxApi;
 
 class OrganizerController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
-        return view('organizer.list', []);
+        $page = $request->query('page');
+        $perPage = $request->query('perPage');
+
+        $data = VoxApi::getOrganizers($page, $perPage);
+        return view('organizer.list', ['organizers' => $data]);
     }
 
     public function create()

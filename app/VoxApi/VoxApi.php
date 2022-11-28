@@ -1,10 +1,9 @@
 <?php
 
 namespace App\VoxApi;
+use Illuminate\Support\Facades\Http;
 
-const API_URL = "https://api-sport-events.php6-02.test.voxteneo.com/api/v1/";
-
-class VoxLib
+class VoxApi
 {
     public static function createOrganizer($data) {
         $response = Http::post(
@@ -15,5 +14,12 @@ class VoxLib
             ]
         );
         return $response;
+    }
+
+    public static function getOrganizers($page = 0, $perPage) {
+        $response = Http::withToken(env('VOX_TOKEN'))->get(
+            env('VOX_API') . '/organizers' . '?' . http_build_query(['page' => $page, 'perPage' => $perPage])
+        );
+        return $response['data'];
     }
 }
