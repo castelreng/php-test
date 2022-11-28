@@ -23,8 +23,10 @@
     <body class="antialiased">
         <h1>list</h1>
         @foreach ($organizers as $organizer)
-            <p>{{ $organizer['id'] }} - {{ $organizer['organizerName'] }}</p>
-            <img src="{{ $organizer['imageLocation'] }}"/>
+            <a href="{{ url('organizers', ['id' => $organizer['id']]) }}">
+                <p>{{ $organizer['id'] }} - {{ $organizer['organizerName'] }}</p>
+                <img src="{{ $organizer['imageLocation'] }}"/>
+            </a>
         @endforeach
     </body>
 </html>
