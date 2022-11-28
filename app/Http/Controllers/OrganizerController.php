@@ -13,7 +13,14 @@ class OrganizerController extends Controller
         $perPage = $request->query('perPage');
 
         $data = VoxApi::getOrganizers($page, $perPage);
+
         return view('organizer.list', ['organizers' => $data]);
+    }
+
+    public function show($organizeId)
+    {
+        $data = VoxApi::getOrganizer($organizeId, true);
+        return view('organizer.detail', ['organizer' => $data]);
     }
 
     public function create()

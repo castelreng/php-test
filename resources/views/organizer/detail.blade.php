@@ -21,10 +21,14 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>list</h1>
-        @foreach ($organizers as $organizer)
-            <p>{{ $organizer['id'] }} - {{ $organizer['organizerName'] }}</p>
-            <img src="{{ $organizer['imageLocation'] }}"/>
+        <h1>Organizer Detail</h1>
+        <p>{{ $organizer['id'] }} - {{ $organizer['organizerName'] }}</p>
+        <img src="{{ $organizer['imageLocation'] }}"/>
+
+
+        <h3>Events list</h3>
+        @foreach ($organizer['events'] as $event)
+            <p>{{ $event['id'] }} - {{ $event['eventName'] }} - {{ $event['eventDate'] }} - {{ $event['eventType'] }}</p>
         @endforeach
     </body>
 </html>

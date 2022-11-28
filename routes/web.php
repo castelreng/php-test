@@ -14,7 +14,8 @@ use App\Http\Controllers\OrganizerController;
 |
 */
 
-Route::get('/organizer/list', [OrganizerController::class, 'list']);
-Route::get('/organizer/create', [OrganizerController::class, 'create']);
+Route::get('/organizers/list', [OrganizerController::class, 'list']);
+Route::get('/organizers/create', [OrganizerController::class, 'create']);
+Route::get('/organizers/{organizerId}', [OrganizerController::class, 'show']);
 
-Route::post('/organizer', [OrganizerController::class, 'store']);
+Route::post('/organizers', [OrganizerController::class, 'store']);
